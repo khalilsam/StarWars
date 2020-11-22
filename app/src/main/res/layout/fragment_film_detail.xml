@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="io.thinkit.starwarsapp.viewmodel.FilmViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_container"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:background="@color/background_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="23dp"
+            android:text="@{viewModel.film.title}"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ReleaseDatelabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="39dp"
+            android:text="Release date"
+            android:textSize="@dimen/label_text_size"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/ReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:text="@{viewModel.film.release_date.toString()}"
+            android:textSize="13sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ReleaseDatelabel" />
+
+        <TextView
+            android:id="@+id/directorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="39dp"
+            android:text="@string/director"
+            android:textSize="@dimen/label_text_size"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/ReleaseDatelabel"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="2dp"
+            android:text="@{viewModel.film.director}"
+            android:textSize="13sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/ReleaseDate"
+            app:layout_constraintTop_toBottomOf="@+id/directorLabel" />
+
+        <TextView
+            android:id="@+id/producerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="39dp"
+            android:text="@string/producer"
+            android:textSize="@dimen/label_text_size"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/directorLabel"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/producer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.film.producer}"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:textSize="13sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/director"
+            app:layout_constraintTop_toBottomOf="@+id/producerLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/opening_crawLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/opening_craw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_container" />
+
+    <TextView
+        android:id="@+id/opening_craw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:text="@{viewModel.film.opening_crawl}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/opening_crawLabel" />
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="@{safeUnbox(viewModel.dataLoading) ? View.VISIBLE : View.GONE}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No Films to display"
+        android:textSize="@dimen/_18sp"
+        android:visibility="@{safeUnbox(viewModel.empty) ? View.VISIBLE : View.GONE}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createdLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/created"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/opening_craw" />
+
+    <TextView
+        android:id="@+id/created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@{viewModel.film.created}"
+        android:layout_marginStart="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createdLabel" />
+
+    <TextView
+        android:id="@+id/editedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="33dp"
+        android:text="@string/edited"
+        app:layout_constraintStart_toEndOf="@+id/createdLabel"
+        app:layout_constraintTop_toBottomOf="@+id/opening_craw" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.film.edited}"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/created"
+        app:layout_constraintTop_toBottomOf="@+id/editedLabel" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

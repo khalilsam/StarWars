@@ -1,0 +1,16 @@
+<resources>
+
+    <!--dp values-->
+    <dimen name="_25dp">25dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+
+    <!--sp values-->
+    <dimen name="label_text_size">3sp</dimen>
+    <dimen name="content_text_size">4.33sp</dimen>
+    <dimen name="title_text_size">8sp</dimen>
+    <dimen name="_20sp">20sp</dimen>
+    <dimen name="_18sp">18sp</dimen>
+    <dimen name="_16sp">16sp</dimen>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Think-It Star Wars</string>
+    <string name="release_date">Release date</string>
+    <string name="producer">Producer</string>
+    <string name="director">Director</string>
+    <string name="opening_craw">Opening craw</string>
+    <string name="created">Created</string>
+    <string name="edited">Edited</string>
+</resources>
