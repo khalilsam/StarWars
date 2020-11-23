@@ -53,4 +53,12 @@ class FilmDetailFragment : Fragment() {
         activity?.toolbar_title?.gravity = Gravity.CENTER
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as AppCompatActivity).run {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_chevron)
+        }
+    }
 }

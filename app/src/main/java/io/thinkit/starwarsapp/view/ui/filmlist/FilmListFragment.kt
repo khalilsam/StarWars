@@ -48,7 +48,7 @@ class FilmListFragment : Fragment() {
         if (viewModel != null) {
             adapter = FilmListAdapter(viewModel)
             val layoutManager = LinearLayoutManager(activity)
-            repo_list_rv.layoutManager = layoutManager
+            film_list_rv.layoutManager = layoutManager
             val itemDecorator =
                 DividerItemDecoration(requireActivity(), DividerItemDecoration.VERTICAL);
             itemDecorator.setDrawable(
@@ -57,8 +57,8 @@ class FilmListFragment : Fragment() {
                     R.drawable.divider
                 )!!
             );
-            repo_list_rv.addItemDecoration(itemDecorator)
-            repo_list_rv.adapter = adapter
+            film_list_rv.addItemDecoration(itemDecorator)
+            film_list_rv.adapter = adapter
         }
     }
 
