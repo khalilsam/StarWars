@@ -2,8 +2,13 @@
 
 
 *MVVM (KOTLIN)
+
 *ViewModel
+
 *LiveData
+
 *Navigation Component
+
 *Data binding
+
 *coroutines
