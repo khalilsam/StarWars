@@ -16,6 +16,12 @@
         android:layout_height="wrap_content"
         android:background="@color/background_list">
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/ProducerGL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.25"
+            android:orientation="vertical" />
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/RDGuideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,6 +61,7 @@
             android:layout_marginTop="5dp"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/content_text_size"
+            android:lineSpacingExtra="7sp"
             app:layout_constraintStart_toStartOf="@+id/RDGuideline"
             app:layout_constraintTop_toBottomOf="@+id/ReleaseDatelabel"
              />
@@ -107,12 +114,11 @@
             android:id="@+id/producorLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="@dimen/_5dp"
+            android:layout_marginTop="5dp"
             android:text="@string/producer"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/label_text_size"
-            app:layout_constraintStart_toEndOf="@+id/directorLabel"
+            app:layout_constraintStart_toStartOf="@+id/ProducerGL"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
@@ -121,10 +127,9 @@
             android:layout_height="wrap_content"
             android:text="@{itemData.producer}"
             android:layout_marginTop="13dp"
-            android:layout_marginStart="16dp"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/content_text_size"
-            app:layout_constraintStart_toEndOf="@+id/director"
+            app:layout_constraintStart_toStartOf="@+id/ProducerGL"
             app:layout_constraintTop_toBottomOf="@+id/producorLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

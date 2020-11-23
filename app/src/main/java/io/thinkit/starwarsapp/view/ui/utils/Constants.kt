@@ -9,15 +9,16 @@ class Constants {
         const val REQUEST_TIMEOUT_DURATION = 30
         const val DEBUG = true
     }
+
     class DateUtils {
-        companion object{
-            fun convertStringDate(date:String,format:String):String{
+        companion object {
+            fun convertStringDate(date: String, format: String): String {
                 var parser = SimpleDateFormat(format)
                 val date: Date = parser.parse(date)
 
-                var formatter= SimpleDateFormat("yyyy/MM/dd")
-                val formattedDate=formatter.format(date)
-                return  formattedDate
+                var formatter = SimpleDateFormat("yyyy/MM/dd")
+                val formattedDate = formatter.format(date)
+                return formattedDate
             }
         }
     }

@@ -25,7 +25,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/directorGL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.25"
+            android:orientation="vertical" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/producerGl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.5"
+            android:orientation="vertical" />
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -57,7 +68,7 @@
             android:layout_marginStart="14dp"
             android:layout_marginTop="2dp"
             android:text="@{viewModel.film.release_date.toString()}"
-            android:textSize="13sp"
+            android:textSize="@dimen/content_text_size"
             android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ReleaseDatelabel" />
@@ -66,36 +77,34 @@
             android:id="@+id/directorLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="39dp"
             android:text="@string/director"
             android:textSize="@dimen/label_text_size"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toEndOf="@+id/ReleaseDatelabel"
+            app:layout_constraintStart_toStartOf="@+id/directorGL"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
             android:id="@+id/director"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20dp"
+
             android:layout_marginTop="2dp"
             android:text="@{viewModel.film.director}"
-            android:textSize="13sp"
+            android:textSize="@dimen/content_text_size"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toEndOf="@+id/ReleaseDate"
+            app:layout_constraintStart_toStartOf="@+id/directorGL"
             app:layout_constraintTop_toBottomOf="@+id/directorLabel" />
 
         <TextView
             android:id="@+id/producerLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
             android:layout_marginTop="39dp"
             android:text="@string/producer"
             android:textSize="@dimen/label_text_size"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toEndOf="@+id/directorLabel"
+            app:layout_constraintStart_toStartOf="@+id/producerGl"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
@@ -103,11 +112,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.film.producer}"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="2dp"
-            android:textSize="13sp"
+            android:textSize="@dimen/content_text_size"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toEndOf="@+id/director"
+            app:layout_constraintStart_toStartOf="@+id/producerGl"
             app:layout_constraintTop_toBottomOf="@+id/producerLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
@@ -115,8 +123,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/opening_craw"
+        android:textSize="@dimen/content_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_container" />
 
@@ -128,6 +137,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:text="@{viewModel.film.opening_crawl}"
+        android:textSize="@dimen/description_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opening_crawLabel" />
@@ -147,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="No Films to display"
-        android:textSize="@dimen/_18sp"
+        android:textSize="18sp"
         android:visibility="@{safeUnbox(viewModel.empty) ? View.VISIBLE : View.GONE}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,6 +171,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         android:text="@string/created"
+        android:textSize="@dimen/content_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opening_craw" />
 
@@ -171,27 +182,33 @@
         android:layout_marginTop="10dp"
         android:text="@{viewModel.film.created}"
         android:layout_marginStart="14dp"
+        android:textSize="@dimen/description_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createdLabel" />
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/editedGL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.22"
+        android:orientation="vertical" />
     <TextView
         android:id="@+id/editedLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="33dp"
         android:text="@string/edited"
-        app:layout_constraintStart_toEndOf="@+id/createdLabel"
+        android:textSize="@dimen/content_text_size"
+        app:layout_constraintStart_toEndOf="@+id/editedGL"
         app:layout_constraintTop_toBottomOf="@+id/opening_craw" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/edited"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@{viewModel.film.edited}"
-        android:layout_marginStart="33dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@+id/created"
+        android:textSize="@dimen/description_text_size"
+        app:layout_constraintStart_toEndOf="@+id/editedGL"
         app:layout_constraintTop_toBottomOf="@+id/editedLabel" />
 
 

@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiClient {
-    val instance :ApiService = Retrofit.Builder().run {
+    val instance: ApiService = Retrofit.Builder().run {
         val gson = GsonBuilder()
             .enableComplexMapKeySerialization()
             .setPrettyPrinting()

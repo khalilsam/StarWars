@@ -9,8 +9,8 @@ import retrofit2.http.Url
 
 interface ApiService {
     @GET("films")
-    fun getFilmsList():Call<SwApiResponse>
+    fun getFilmsList(): Call<SwApiResponse>
 
     @GET()
-    fun getFilmById(@Url url:String):Call<Film>
+    fun getFilmById(@Url url: String): Call<Film>
 }

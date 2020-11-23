@@ -6,16 +6,16 @@
     app:startDestination="@id/repoListFragment">
     <fragment
         android:id="@+id/repoListFragment"
-        android:name="io.thinkit.starwarsapp.view.ui.repolist.RepoListFragment"
+        android:name="io.thinkit.starwarsapp.view.ui.filmlist.FilmListFragment"
         android:label=""
-        tools:layout="@layout/fragment_repo_list">
+        tools:layout="@layout/fragment_film_list">
         <action
             android:id="@+id/action_repoListFragment_to_repoDetailFragment"
             app:destination="@id/repoDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/repoDetailFragment"
-        android:name="io.thinkit.starwarsapp.view.ui.repodetails.RepoDetailFragment"
+        android:name="io.thinkit.starwarsapp.view.ui.filmdetails.FilmDetailFragment"
         android:label="">
         <argument
             android:name="url"
